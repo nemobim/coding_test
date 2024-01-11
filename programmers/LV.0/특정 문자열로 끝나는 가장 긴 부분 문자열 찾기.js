@@ -3,7 +3,6 @@
 /** 나의 풀이 */
 function solution(myString, pat) {
   const last = myString.lastIndexOf(pat);
-  return myString.substring(0, last + pat.length);
+  return myString.substring(0, last) + pat;
 }
-
 console.log(solution("AbCdEFG", "dE")); // AbCdE

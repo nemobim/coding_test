@@ -2,13 +2,15 @@
 
 /**나의 풀이 */
 function solution(arr, flag) {
-  return flag.reduce((answer, isAdd, i) => {
-    const count = isAdd ? arr[i] * 2 : arr[i];
-    return isAdd
-      ? answer.concat(Array(count).fill(arr[i]))
-      : answer.slice(0, -count);
-  }, []);
+  const X = [];
+  arr.forEach((x, i) => {
+    flag[i] ? X.push(...Array(x * 2).fill(x)) : X.splice(-x);
+  });
+  return X;
 }
+
+//flag[i] 값이 true면 arr[i]을 arr[i]*2번 추가
+//flag[i] 값이 false라면 마지막 arr[i]개의 원소를 제거
 
 console.log(solution([3, 2, 4, 1, 3], [true, false, true, false, false]));
 //[  3, 3, 3, 3, 4, 4, 4, 4 ]
