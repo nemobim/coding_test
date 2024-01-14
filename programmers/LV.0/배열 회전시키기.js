@@ -1,5 +1,6 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/120844
 
+/**나의 풀이 */
 function solution(numbers, direction) {
   if (direction === "left") {
     numbers.push(numbers.shift());
