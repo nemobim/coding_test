@@ -8,5 +8,3 @@ function solution(strArr) {
   });
   return Math.max(...Object.values(obj));
 }
-
-/**다른 사람 풀이 */
