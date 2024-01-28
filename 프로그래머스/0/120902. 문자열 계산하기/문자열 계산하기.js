@@ -4,7 +4,7 @@
 // }
 
 function solution(my_string) {
-    const tokens = my_string.match(/(-?\d+)|([+-])/g);
+    const tokens = my_string.split(" ")
     
     let result = BigInt(tokens[0]);
 
@@ -18,6 +18,5 @@ function solution(my_string) {
             result -= operand;
         }
     }
-
     return result;
 }
