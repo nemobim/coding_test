@@ -1,4 +1,4 @@
 function solution(myString, pat) {
-  const last = myString.lastIndexOf(pat);
-  return myString.substring(0, last) + pat
+  const lastIndexOf = myString.lastIndexOf(pat);
+  return myString.slice(0, lastIndexOf) + pat;
 }
