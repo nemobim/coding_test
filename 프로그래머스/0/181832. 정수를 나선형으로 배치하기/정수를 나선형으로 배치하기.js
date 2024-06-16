@@ -1,19 +1,21 @@
 function solution(n) {
   const result = Array.from({ length: n }, () => Array(n).fill(0));
-  const directions = [[0, 1], [1, 0], [0, -1], [-1, 0]];
-  let [row, col, dir] = [0, 0, 0];
-  let currentNumber = 1;
+  let num = 1;
+  let row = 0, col = 0;
+  let dr = 0, dc = 1; // 시작 방향: 오른쪽
 
   for (let i = 0; i < n * n; i++) {
-    result[row][col] = currentNumber++;
-    const [nextRow, nextCol] = [row + directions[dir][0], col + directions[dir][1]];
+    result[row][col] = num++;
+    const nextRow = row + dr;
+    const nextCol = col + dc;
 
+    // 다음 위치가 범위를 벗어나거나 이미 채워진 경우 방향 전환
     if (nextRow < 0 || nextRow >= n || nextCol < 0 || nextCol >= n || result[nextRow][nextCol] !== 0) {
-      dir = (dir + 1) % 4;
+      [dr, dc] = [dc, -dr]; // 방향을 전환 (오른쪽 -> 아래 -> 왼쪽 -> 위)
     }
 
-    row += directions[dir][0];
-    col += directions[dir][1];
+    row += dr;
+    col += dc;
   }
 
   return result;
